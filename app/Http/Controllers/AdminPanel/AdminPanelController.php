@@ -7,5 +7,9 @@ use Illuminate\Http\Request;
 
 class AdminPanelController extends Controller
 {
-    //
+    public function panel()
+    {
+        echo 'admin_panel';
+    }
+    
 }
