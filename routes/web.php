@@ -1,3 +1,3 @@
 <?php
 
-require __DIR__ . '/groups/home.php';
+require __DIR__ . '/groups/main.php';

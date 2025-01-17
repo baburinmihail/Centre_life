@@ -125,6 +125,7 @@
       <!-- /END THE FEATURETTES -->
     </div><!-- /.container -->
   </main>
+  <script>nav_link_home.classList.add('active');</script>
   @endsection
 
 
