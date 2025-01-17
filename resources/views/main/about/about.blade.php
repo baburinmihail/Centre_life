@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('main')
-<main>
-
   <div class="container marketing" style="margin-top: 2%">
     <main>
       <h1 class="text-body-emphasis">О нас</h1>
@@ -80,7 +78,6 @@
       </div>
     </main>
   </div><!-- /.container -->
-</main>
   <script>nav_link_about.classList.add('active');</script>
 @endsection
 

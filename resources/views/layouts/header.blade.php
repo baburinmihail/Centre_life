@@ -14,8 +14,9 @@
               <a id="nav_link_about" class="nav-link" href="{{route('about')}}">О нас</a>
             </li>
           </ul>
-          <button class="btn btn-outline-success" type="button">Авторизация</button>
+          <a id="login_btn" href="{{route('users.index')}}" class="btn btn-outline-success">Авторизация</a>
         </div>
       </div>
     </nav>
 </header>
+
