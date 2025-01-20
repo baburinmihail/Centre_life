@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <title>Центр жизни</title>
 
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -107,6 +107,6 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="assets/css/carousel.css" rel="stylesheet">
-    <link href="assets/css/mycss.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/carousel.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/mycss.css') }}" rel="stylesheet">
   </head>

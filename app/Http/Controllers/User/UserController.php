@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\User\LoginRequest;
+use App\Http\Requests\User\RegiseterRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Users\UserService;
 
@@ -19,13 +20,13 @@ class UserController extends Controller
 
     public function create()
     {
-        //
+        return view('main.users.create');
     }
 
 
-    public function store(Request $request)
+    public function store(RegiseterRequest $request , UserService $servise )
     {
-        //
+        return $servise->auth_registr($request);
     }
 
 
@@ -58,4 +59,5 @@ class UserController extends Controller
 
         //route('admin.panel');
     }
+
 }
