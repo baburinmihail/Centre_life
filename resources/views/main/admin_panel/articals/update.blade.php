@@ -3,9 +3,9 @@
 @section('main')
   <div class="container">
     <main class="form w-200 m-auto">
-        <form action="{{ route('artikals.store') }}"   style="margin-top: 5%;" method="POST">
+        <form action="{{ route('users.store') }}"   style="margin-top: 5%;" method="POST">
         @csrf
-          <h2>Создание новой статьи</h2>
+          <h2>Изменить статью Name1</h2>
           <div class="mb-3">
             
             <label for="exampleFormControlInput1" class="form-label">Название</label>
@@ -19,14 +19,10 @@
             <label for="formFileMultiple" class="form-label">Фотографии к статье</label>
             <input class="form-control" type="file" id="formFileMultiple" multiple>
           </div>
-          <div class="d-grid gap-2 col-2 ">
-            <button class="btn btn-success" type="button">Создать</button>
-          </div>
         </form>
     </main>
   </div>
   <script>artikal_list.classList.add('active');</script>
   <script>admin_panel.classList.add('active');</script>
 @endsection
-
 

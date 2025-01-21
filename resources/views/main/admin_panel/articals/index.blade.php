@@ -10,23 +10,18 @@
             <tr>
               <th scope="col">№</th>
               <th scope="col">Название</th>
-              <th scope="col"> </th>
-              <th scope="col"><a  href="{{route('artikals.create')}}">Добавить</a></th>
+              <th scope="col"> <a  href="{{route('artikals.create')}}"><img src="{{ asset('assets/img/icon/create/plus-circle.svg') }}" width="25px"></a></th>
+              <th scope="col"></th>
             </tr>
-          </thead>
+          </thead >
           <tbody>
             <tr>
               <td>1</td>
               <td>name1</td>
-              <td>редактировать</td>
-              <td>удалить</td>
+              <td><a href="tel:+1234567890"><img src="{{ asset('assets/img/icon/update/pencil.svg') }}" width="20px"></a></td>
+              <td><button type="button" class="btn-close" aria-label="Close"></button></td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>name2</td>
-              <td>редактировать</td>
-              <td>удалить</td>
-            </tr>
+
           </tbody>
         </table>
       </div>
