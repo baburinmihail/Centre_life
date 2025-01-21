@@ -16,6 +16,14 @@
             <li class="nav-item">
               <a id="nav_link_register" class="nav-link" href="{{route('users.create')}}">Регистрация</a>
             </li>
+            <li class="nav-item dropdown">
+              <a id="admin_panel" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="true">Админ панель</a>
+              <ul class="dropdown-menu" data-bs-popper="static">
+                <li><a id="artikal_list" class="dropdown-item" href="{{route('artikals.index')}}">Список статей</a></li>
+                <li><a id="dockument_list" class="dropdown-item" href="{{route('dockument.list')}}">Список нормативной документации</a></li>
+                <li><a id="rekomend_list" class="dropdown-item" href="{{route('rekomend.list')}}">Список Рекомендации</a></li>
+              </ul>
+            </li>  
           </ul>
           <a id="login_btn" href="{{route('users.index')}}" class="btn btn-outline-success">Авторизация</a>
         </div>

@@ -7,9 +7,19 @@ use Illuminate\Http\Request;
 
 class AdminPanelController extends Controller
 {
-    public function panel()
+    public function artikal_list()
     {
-        echo 'admin_panel';
+        return view('main.admin_panel.article_list');
+    }
+
+    public function dockument_list()
+    {
+        return view('main.admin_panel.article_list');
+    }
+
+    public function rekomend_list()
+    {
+        return view('main.admin_panel.article_list');
     }
     
 }
