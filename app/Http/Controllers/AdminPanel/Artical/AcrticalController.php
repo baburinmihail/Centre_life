@@ -4,6 +4,8 @@ namespace App\Http\Controllers\AdminPanel\Artical;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\AdminPanel\Acrtical\AcrticalStoreRequest;
+use app\Models\Acrtical;
 
 class AcrticalController extends Controller
 {
@@ -24,9 +26,9 @@ class AcrticalController extends Controller
 
 
 
-    public function store(Request $request)
+    public function store(AcrticalStoreRequest $request)
     {
-        dd($request);
+        dd($request->toArray());
     }
 
     /**

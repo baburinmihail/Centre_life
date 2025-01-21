@@ -106,7 +106,8 @@
         border-top-right-radius: 0;
       }
 
-      
+
+
     </style>
     <!-- Custom styles for this template -->
     <link href="{{ asset('assets/css/carousel.css') }}" rel="stylesheet">

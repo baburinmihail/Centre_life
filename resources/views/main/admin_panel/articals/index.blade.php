@@ -10,7 +10,7 @@
             <tr>
               <th scope="col">№</th>
               <th scope="col">Название</th>
-              <th scope="col"> <a  href="{{route('artikals.create')}}"><img src="{{ asset('assets/img/icon/create/plus-circle.svg') }}" width="25px"></a></th>
+              <th scope="col"> <a class="karandash_a"  href="{{route('artikals.create')}}"><img c src="{{ asset('assets/img/icon/create/plus-circle.svg') }}" width="25px"></a></th>
               <th scope="col"></th>
             </tr>
           </thead >
