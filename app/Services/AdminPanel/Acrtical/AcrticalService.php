@@ -5,13 +5,32 @@ namespace App\Services\AdminPanel\Acrtical;
 use App\Enums\UserRole;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Acrtical;
+
 
 
 class AcrticalService{
 
     public function store($request)
     {
-        echo 'service->$request';
+
+        //$arrayFile = $request->allFiles();
+        $list_url = [];
+        
+        foreach ($request->file('imagesPath') ?? [] as $file) {
+            $path = $file->store('imagesStore');
+            $list_url[] = "/storage/$path";
+
+        }
+        
+        $article = Acrtical::create([
+            'name_acrtical' => $request->input('name_acrtical'),
+            'description' => $request->input('description'),
+            'images' => json_encode($list_url),
+        ]);
+        
+        
+
     }
 
 }

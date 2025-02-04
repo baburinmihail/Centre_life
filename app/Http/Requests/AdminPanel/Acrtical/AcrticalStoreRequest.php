@@ -15,7 +15,9 @@ class AcrticalStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
-        ];
+            'name_acrtical' => [ 'required' , 'string', 'max:100' ],
+            'description' => [ 'required', 'string' ],
+            //'images.*' => [ 'image' , 'mimes:png,jpeg,jpg ' ],
+        ];;
     }
 }

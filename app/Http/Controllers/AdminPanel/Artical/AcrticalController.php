@@ -5,7 +5,8 @@ namespace App\Http\Controllers\AdminPanel\Artical;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\AdminPanel\Acrtical\AcrticalStoreRequest;
-use app\Models\Acrtical;
+use App\Services\AdminPanel\Acrtical\AcrticalService;
+use App\Models\Acrtical;
 
 class AcrticalController extends Controller
 {
@@ -13,7 +14,11 @@ class AcrticalController extends Controller
 
     public function index()
     {
-        return view('main.admin_panel.articals.index');
+        $acrticals_all= Acrtical::all();
+
+        return view('main.admin_panel.articals.index' , [
+           'acrticals_all' => $acrticals_all
+        ]);
     }
 
 
@@ -26,22 +31,31 @@ class AcrticalController extends Controller
 
 
 
-    public function store(AcrticalStoreRequest $request)
+    public function store(AcrticalStoreRequest $request, AcrticalService $servise)
     {
-        dd($request->toArray());
+        $servise->store($request);
+        return redirect()->route('artikals.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+
+
+
+
+    public function show(int $id)
     {
-        //
+        $acrtical = Acrtical::find($id);
+        $path_images = json_decode($acrtical->images, true);
+
+        return view('main.admin_panel.articals.show'  , [
+            'acrtical' => $acrtical,
+            'path_images' => $path_images
+         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
+
+
+
     public function edit(string $id )
     {
         return view('main.admin_panel.articals.update');
@@ -52,14 +66,15 @@ class AcrticalController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //Останавился сдесь
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Acrtical $acrtical)
     {
-        //
+        $acrtical -> delete();
+        return redirect()->back()->withSuccess('Статья удалена!');
     }
 }

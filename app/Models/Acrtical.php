@@ -9,4 +9,11 @@ class Acrtical extends Model
 {
     /** @use HasFactory<\Database\Factories\AcrticalFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        
+        'name_acrtical',
+        'description',
+        'images',
+    ];
 }
