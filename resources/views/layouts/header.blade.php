@@ -20,8 +20,8 @@
               <a id="admin_panel" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="true">Админ панель</a>
               <ul class="dropdown-menu" data-bs-popper="static">
                 <li><a id="artikal_list" class="dropdown-item" href="{{route('artikals.index')}}">Статьи</a></li>
-                <li><a id="dockument_list" class="dropdown-item" href="{{route('dockument.list')}}">Нормативная документация</a></li>
-                <li><a id="rekomend_list" class="dropdown-item" href="{{route('rekomend.list')}}">Рекомендации</a></li>
+                <li><a id="dockument_list" class="dropdown-item" href="{{route('documents.index')}}">Нормативная документация</a></li>
+                <li><a id="rekomend_list" class="dropdown-item" href="{{route('documents.index')}}">Рекомендации</a></li>
               </ul>
             </li>  
           </ul>
