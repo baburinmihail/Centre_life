@@ -28,8 +28,16 @@ class AcrticalService{
             'description' => $request->input('description'),
             'images' => json_encode($list_url),
         ]);
-        
-        
+
+
+    }
+
+    public function update($request , $acrtical)
+    {
+        //dd($request);
+        $acrtical -> name_acrtical = $request -> input('name_acrtical');
+        $acrtical -> description = $request -> input('description');
+        $acrtical -> save();
 
     }
 

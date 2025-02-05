@@ -6,6 +6,9 @@
       <div class="table-responsive small">
         <table class="table table-striped table-sm">
           <h2>Список статей</h2>
+          @if (session('success'))
+            <h5><i class="icon fa fa-check"></i>{{ session('success') }}</h5>
+          @endif
           <thead>
             <tr>
               <th scope="col">№</th>
@@ -23,8 +26,10 @@
                 <td><a href="{{ route( 'artikals.show' , $acrtical['id'] ) }}">Просмотреть</a></td>
                 <td><a href="{{ route( 'artikals.edit' , $acrtical['id'] ) }}">Редактировать</a></td>
                 <td>
-                  <form action="page/new.html" target="_blank">
-                    <button type="button" class="btn-close" aria-label="Close"></button>
+                  <form action="{{ route( 'artikals.destroy' , $acrtical['id'] ) }}" target="_blank" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn-close" aria-label="Close"></button>
                   </form>
                 </td>
               </tr>

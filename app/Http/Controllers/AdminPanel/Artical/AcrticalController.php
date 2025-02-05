@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AdminPanel\Artical;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\AdminPanel\Acrtical\AcrticalStoreRequest;
+use App\Http\Requests\AdminPanel\Acrtical\AcrticalUpdateRequest;
 use App\Services\AdminPanel\Acrtical\AcrticalService;
 use App\Models\Acrtical;
 
@@ -30,11 +31,10 @@ class AcrticalController extends Controller
 
 
 
-
     public function store(AcrticalStoreRequest $request, AcrticalService $servise)
     {
         $servise->store($request);
-        return redirect()->route('artikals.index');
+        return redirect()->route('artikals.index')->withSuccess('Статья создана!');;
     }
 
 
@@ -43,6 +43,7 @@ class AcrticalController extends Controller
 
     public function show(int $id)
     {
+        
         $acrtical = Acrtical::find($id);
         $path_images = json_decode($acrtical->images, true);
 
@@ -56,24 +57,31 @@ class AcrticalController extends Controller
 
 
 
-    public function edit(string $id )
+    public function edit(int $id)
     {
-        return view('main.admin_panel.articals.update');
+        
+        $acrtical = Acrtical::find($id);
+        return view('main.admin_panel.articals.edit', [
+            'acrtical' => $acrtical
+         ]);;
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+
+
+
+    public function update(AcrticalUpdateRequest $request, int $id , AcrticalService $servise)
     {
-        //Останавился сдесь
+        $acrtical = Acrtical::find($id);
+        $servise->update($request , $acrtical);
+        return redirect()->route('artikals.show', $acrtical['id'])->withSuccess('Статья изменена!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Acrtical $acrtical)
+
+
+
+    public function destroy(int $id)
     {
+        $acrtical = Acrtical::find($id);
         $acrtical -> delete();
         return redirect()->back()->withSuccess('Статья удалена!');
     }
