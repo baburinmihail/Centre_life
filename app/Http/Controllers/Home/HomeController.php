@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Document;
 
 class HomeController extends Controller
 {
@@ -12,6 +13,11 @@ class HomeController extends Controller
     }
 
     public function about(){
-        return view('main.about.about');
+
+        $documents_all= Document::all();
+        
+        return view('main.about.about' , [
+            'documents_all' => $documents_all,
+        ]);
     }
 }

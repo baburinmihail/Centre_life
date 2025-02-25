@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\AdminPanel\Artical;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\Http\Requests\AdminPanel\Acrtical\AcrticalStoreRequest;
 use App\Http\Requests\AdminPanel\Acrtical\AcrticalUpdateRequest;
 use App\Services\AdminPanel\Acrtical\AcrticalService;
@@ -83,6 +83,6 @@ class AcrticalController extends Controller
     {
         $acrtical = Acrtical::find($id);
         $acrtical -> delete();
-        return redirect()->back()->withSuccess('Статья удалена!');
+        return redirect()->back()->withSuccess('документ удален!');
     }
 }
