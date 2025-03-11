@@ -16,7 +16,7 @@
         <div class="mb-3">
           <label for="formFileMultiple" class="form-label">Фотографии к статье</label>
           @foreach ($path_images as $pathImage)
-            <textarea class="form-control  " name="description"  id="description" rows="3" placeholder="Описание" disabled   value="">{{ $pathImage }}</textarea>
+            <img class="fit-picture" src="{{ $pathImage }}" alt="sorry, foto net" />
           @endforeach  
         </div>
       </form>

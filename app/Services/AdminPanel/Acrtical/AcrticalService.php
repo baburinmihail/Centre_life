@@ -16,6 +16,8 @@ class AcrticalService{
 
         //$arrayFile = $request->allFiles();
         $list_url = [];
+
+        //dd($request);
         
         foreach ($request->file('imagesPath') ?? [] as $file) {
             $path = $file->store('imagesStore');
