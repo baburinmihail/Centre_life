@@ -13,6 +13,7 @@
             <li class="nav-item">
               <a id="nav_link_about" class="nav-link" href="{{route('about')}}">О нас</a>
             </li>
+            @if((session()->has(['my_token'])))
             <li class="nav-item">
               <a id="nav_link_register" class="nav-link" href="{{route('users.create')}}">Регистрация</a>
             </li>
@@ -24,6 +25,7 @@
                 <!--<li><a id="rekomend_list" class="dropdown-item" href="{{route('documents.index')}}">Рекомендации</a></li>-->
               </ul>
             </li>  
+            @endif 
           </ul>
           <a id="login_btn" href="{{route('users.index')}}" class="btn btn-outline-success">Авторизация</a>
         </div>
