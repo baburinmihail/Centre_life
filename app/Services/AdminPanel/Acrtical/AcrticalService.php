@@ -17,17 +17,21 @@ class AcrticalService{
         //$arrayFile = $request->allFiles();
         $list_url = [];
 
-        //dd($request);
+
         
         foreach ($request->file('imagesPath') ?? [] as $file) {
             $path = $file->store('imagesStore');
             $list_url[] = "/storage/$path";
-
         }
+
+        $pathMainFoto = $request->file('mainFoto')->store('imagesStore');
+        $mainFoto = "/storage/$pathMainFoto";
+        //dd($mainFoto);
         
-        $article = Acrtical::create([
+        Acrtical::create([
             'name_acrtical' => $request->input('name_acrtical'),
             'description' => $request->input('description'),
+            'mainFoto' => $mainFoto,
             'images' => json_encode($list_url),
         ]);
 

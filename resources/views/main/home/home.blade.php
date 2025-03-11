@@ -58,44 +58,25 @@
   
       <!-- Three columns of text below the carousel -->
       <div class="row">
-        <div class="col-lg-4">
-          <img src="assets/img/article/article1.jpg" width="140" height="140"  aria-hidden="true" alt="альтернативный текст" style="border-radius: 50%;"  focusable="false">
-          <h2 class="fw-normal">Статья 1</h2>
-          <p>Здесь располагается краткое описание статьи 1. Для того , что бы увидеть полный текст перейдите по ссылке</p>
-          <p><a class="btn btn-secondary" href="#">Посмотреть детали &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img src="assets/img/article/article2.jpg" width="140" height="140"  aria-hidden="true" alt="альтернативный текст" style="border-radius: 50%;"  focusable="false">
-          <h2 class="fw-normal">Статья 2</h2>
-          <p>Здесь располагается краткое описание статьи 2. Для того , что бы увидеть полный текст перейдите по ссылке</p>
-          <p><a class="btn btn-secondary" href="#">Посмотреть детали &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img src="assets/img/article/article3.jpg" width="140" height="140"  aria-hidden="true" alt="альтернативный текст" style="border-radius: 50%;"  focusable="false">
-          <h2 class="fw-normal">Статья 3</h2>
-          <p>Здесь располагается краткое описание статьи 3. Для того , что бы увидеть полный текст перейдите по ссылке</p>
-          <p><a class="btn btn-secondary" href="#">Посмотреть детали &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img src="assets/img/article/article_def.jpg" width="140" height="140"  aria-hidden="true" alt="альтернативный текст" style="border-radius: 50%;"  focusable="false">
-          <h2 class="fw-normal">Статья 4</h2>
-          <p>Здесь располагается краткое описание статьи 4. Для того , что бы увидеть полный текст перейдите по ссылке</p>
-          <p><a class="btn btn-secondary" href="#">Посмотреть детали &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img src="assets/img/article/article_def.jpg" width="140" height="140"  aria-hidden="true" alt="альтернативный текст" style="border-radius: 50%;"  focusable="false">
-          <h2 class="fw-normal">Статья 5</h2>
-          <p>Здесь располагается краткое описание статьи 5. Для того , что бы увидеть полный текст перейдите по ссылке</p>
-          <p><a class="btn btn-secondary" href="#">Посмотреть детали &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
+
+        @foreach ($articals as $acrtical)
+          <div class="col-lg-4">
+            <img src="{{ $acrtical['mainFoto'] }}" width="140" height="140"  aria-hidden="true" alt="альтернативный текст" style="border-radius: 50%;"  focusable="false">
+            <h2 class="fw-normal">{{ $acrtical['name_acrtical'] }}</h2>
+            <p>{{ $acrtical['description'] }}</p>
+            <p><a class="btn btn-secondary" href="{{ route( 'artikals.show' , $acrtical['id'] ) }}">Посмотреть детали &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+        @endforeach
+        
+        <!--
         <div class="col-lg-4">
           <img src="assets/img/article/article_def.jpg" width="140" height="140"  aria-hidden="true" alt="альтернативный текст" style="border-radius: 50%;"  focusable="false">
           <h2 class="fw-normal">Статья 6</h2>
           <p>Здесь располагается краткое описание статьи 6. Для того , что бы увидеть полный текст перейдите по ссылке</p>
           <p><a class="btn btn-secondary" href="#">Посмотреть детали &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-  
+        <!--</div><!-- /.row -->
+      
 
       <!-- START THE FEATURETTES -->
   

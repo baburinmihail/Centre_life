@@ -25,6 +25,15 @@
             @enderror
           </div>
           <div class="mb-3">
+            <label for="formFileMultiple" class="form-label">Фотография к обложке</label>
+            <input class="form-control  @error('mainFoto') is-invalid @enderror" name="mainFoto" type="file" id="mainFoto" multiple value="{{ old('main_foto') }}">
+            @error('mainFoto')
+            <div id="mainFoto_error" class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+          </div>
+          <div class="mb-3">
             <label for="formFileMultiple" class="form-label">Фотографии к статье</label>
             <input class="form-control  @error('images.*') is-invalid @enderror" name="imagesPath[]" type="file" id="imagesPath" multiple value="{{ old('images') }}">
             @error('images.*')

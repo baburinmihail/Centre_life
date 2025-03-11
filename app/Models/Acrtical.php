@@ -14,6 +14,7 @@ class Acrtical extends Model
         
         'name_acrtical',
         'description',
+        'mainFoto',
         'images',
     ];
 }
