@@ -9,6 +9,7 @@ use App\Http\Requests\AdminPanel\Acrtical\AcrticalUpdateRequest;
 use App\Services\AdminPanel\Acrtical\AcrticalService;
 use App\Models\Acrtical;
 
+
 class AcrticalController extends Controller
 {
 
@@ -79,10 +80,10 @@ class AcrticalController extends Controller
 
 
 
-    public function destroy(int $id)
+    public function destroy(int $id , AcrticalService $servise)
     {
         $acrtical = Acrtical::find($id);
-        $acrtical -> delete();
+        $servise->delete($acrtical);
         return redirect()->back()->withSuccess('документ удален!');
     }
 }

@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('tokens', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->foreignId('user_id')
+                  ->nullable()
+                  ->constrained()
+                  ->cascadeOnDelete();
             $table->string('token');
             $table->datetime('lifeToken');
             $table->timestamps();

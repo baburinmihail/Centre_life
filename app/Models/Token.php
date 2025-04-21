@@ -14,8 +14,7 @@ class Token extends Model
         'token',
     ];
 
-    public function categorys(){
-
+    public function users(){
         return $this -> belongsTo(User::class , 'user_id', 'id' );
     }
 }

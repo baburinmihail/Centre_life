@@ -43,9 +43,9 @@ class DocumentController extends Controller
 
 
 
-    public function destroy(Document $document)
+    public function destroy(Document $document , AllDocumentService $documentServise)
     {
-        $document -> delete();
-        return redirect()->back()->withSuccess('Статья удалена!');
+        $documentServise -> delete($document);
+        return redirect()->back()->withSuccess('Документ удален!');
     }
 }

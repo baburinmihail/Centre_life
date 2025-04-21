@@ -8,10 +8,19 @@ use App\Http\Requests\User\LoginRequest;
 use App\Http\Requests\User\RegiseterRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Users\UserService;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
 
-class UserController extends Controller
+class UserController extends Controller implements HasMiddleware
 {
+
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('token.acess', only: [ 'store', 'create'  ]),
+        ];
+    }
 
     public function index()
     {

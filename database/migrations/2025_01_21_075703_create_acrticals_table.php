@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name_acrtical')->nullable();
             $table->longText('description')->nullable();
             $table->string('mainFoto')->nullable();
-            $table->string('images')->nullable();
+            $table->json('images')->nullable();
             $table->timestamps();
         });
     }

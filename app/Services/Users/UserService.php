@@ -29,6 +29,8 @@ class UserService{
         //dd(session()->only(['my_token']));
 
 
+        Token::where('lifeToken', '>', time())->delete();
+
         Token::query()->create([
             'user_id' => $user->id,
             'lifeToken' => $lifeToken,
@@ -36,7 +38,8 @@ class UserService{
         ]);
 
         
-        return auth_accsess();
+        //return auth_accsess();
+        return redirect()->route('home');
 
     }
 

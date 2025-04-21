@@ -6,6 +6,7 @@ use App\Enums\UserRole;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acrtical;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -45,6 +46,24 @@ class AcrticalService{
         $acrtical -> description = $request -> input('description');
         $acrtical -> save();
 
+    }
+
+    public function delete($acrtical)
+    {
+        $toDelete = 9; // сколько знаков надо убрать
+
+        $images_array = (json_decode($acrtical->images));
+
+        for ($i = 0; $i < count($images_array); $i++) {
+            $resultImage = substr( $images_array[$i], $toDelete); 
+            Storage::delete($resultImage);
+        }
+
+        $inputMaiFoto = $acrtical->mainFoto;//обложка
+        $resultMainFoto = substr( $inputMaiFoto, $toDelete); 
+        Storage::delete($resultMainFoto);
+
+        $acrtical -> delete();
     }
 
 }
